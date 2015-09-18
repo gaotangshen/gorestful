@@ -1,9 +1,9 @@
 package main
 
 import (
+	"gorestful/router"
 	"log"
 	"net/http"
-	"test/router"
 )
 
 func main() {

@@ -1,6 +1,9 @@
 package model
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+)
 
 var currentId int
 
@@ -15,9 +18,13 @@ func init() {
 func RepoGet() Todos {
 	return todos
 }
-func RepoFindTodo(id int) Todo {
+func RepoFindTodo(id string) Todo {
+	todoid, err := strconv.ParseInt(id, 10, 0)
+	if err != nil {
+		return Todo{}
+	}
 	for _, t := range todos {
-		if t.Id == id {
+		if int64(t.Id) == todoid {
 			return t
 		}
 	}

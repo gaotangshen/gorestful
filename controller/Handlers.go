@@ -4,10 +4,10 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/gorilla/mux"
+	"gorestful/model"
 	"io"
 	"io/ioutil"
 	"net/http"
-	"test/model"
 )
 
 func Index(w http.ResponseWriter, r *http.Request) {
@@ -23,11 +23,13 @@ func TodoIndex(w http.ResponseWriter, r *http.Request) {
 		panic(err)
 	}
 }
-
 func TodoShow(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	todoId := vars["todoId"]
-	fmt.Fprintln(w, "Todo show:", todoId)
+	todo := model.RepoFindTodo(todoId)
+	if err := json.NewEncoder(w).Encode(todo); err != nil {
+		panic(err)
+	}
 }
 func TodoCreate(w http.ResponseWriter, r *http.Request) {
 	var todo model.Todo
