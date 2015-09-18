@@ -3,8 +3,8 @@ package router
 import (
 	"fmt"
 	"github.com/gorilla/mux"
+	"gorestful/controller"
 	"net/http"
-	"test/controller"
 )
 
 func NewRouter() *mux.Router {

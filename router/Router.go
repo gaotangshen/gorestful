@@ -1,8 +1,8 @@
 package router
 
 import (
+	"gorestful/controller"
 	"net/http"
-	"test/controller"
 )
 
 type Route struct {
