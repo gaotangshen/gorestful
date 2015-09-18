@@ -26,13 +26,8 @@ func TodoIndex(w http.ResponseWriter, r *http.Request) {
 func TodoShow(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	todoId := vars["todoId"]
-<<<<<<< HEAD
 	todos := model.RepoFindTodo(todoId)
 	if err := json.NewEncoder(w).Encode(todos); err != nil {
-=======
-	todo := model.RepoFindTodo(todoId)
-	if err := json.NewEncoder(w).Encode(todo); err != nil {
->>>>>>> 27fd1295805bf04e58c439a17410db32abe191ba
 		panic(err)
 	}
 }

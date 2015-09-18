@@ -24,11 +24,7 @@ func RepoFindTodo(id string) Todo {
 		return Todo{}
 	}
 	for _, t := range todos {
-<<<<<<< HEAD
-		if int(t.Id) == int(todoid) {
-=======
 		if int64(t.Id) == todoid {
->>>>>>> 27fd1295805bf04e58c439a17410db32abe191ba
 			return t
 		}
 	}
