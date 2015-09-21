@@ -39,4 +39,10 @@ var routes = Routes{
 		"/todos",
 		controller.TodoCreate,
 	},
+	Route{
+		"Users",
+		"GET",
+		"/users",
+		controller.All,
+	},
 }
